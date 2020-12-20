@@ -153,7 +153,35 @@ class ExampleInstrumentedTest {
         getTowns()
     }
 
+    @Test
+    fun insertAllList(){//OK
 
+        val myList = listOf(
+            Person(1, "Valencia", 1, 1),
+            Person(2, "Madrid", 1, 1),
+            Person(3, "Barcelona", 1, 1),
+            Person(4, "Sevilla", 1, 1)
+        )
+
+        databaseDao.insertAllList(myList)
+
+        getPersons()
+    }
+
+    @Test
+    fun insertAllVarArg(){//OK
+
+        val persons = arrayOf(
+            Person(1, "Valencia", 1, 1),
+            Person(2, "Madrid", 1, 1),
+            Person(3, "Barcelona", 1, 1),
+            Person(4, "Sevilla", 1, 1)
+        )
+
+        databaseDao.insertAllVarArg(*persons)
+
+        getPersons()
+    }
 
 
 

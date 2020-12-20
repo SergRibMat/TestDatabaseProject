@@ -32,6 +32,12 @@ interface DatabaseDAO {
     @Delete
     fun deleteFamily(family: Family)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAllList(persons: List<Person>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAllVarArg(vararg person: Person)
+
     @Query("SELECT * FROM town ORDER BY id ASC")
     fun getAllTowns(): List<Town>
 
